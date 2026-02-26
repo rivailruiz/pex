@@ -1,0 +1,162 @@
+:root {
+  --bg: #f3f0e7;
+  --text: #1f2a1d;
+  --card: #ffffff;
+  --line: #d6d2c5;
+  --brand: #2f6f4f;
+  --brand-strong: #1f4a35;
+  --muted: #50614b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top right, #d9e8dd 0%, var(--bg) 45%);
+}
+
+.page {
+  width: min(1100px, 92%);
+  margin: 2rem auto 4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.hero {
+  background: linear-gradient(120deg, #174a34 0%, #2f6f4f 60%, #4d9570 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 18px 28px rgba(25, 58, 42, 0.22);
+}
+
+.hero h1 {
+  margin: 0.2rem 0 0.6rem;
+  font-size: clamp(1.6rem, 2vw + 1rem, 2.3rem);
+}
+
+.hero p {
+  margin: 0;
+  max-width: 70ch;
+}
+
+.eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  font-size: 0.86rem;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.2rem;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+  align-items: end;
+}
+
+label {
+  font-size: 0.93rem;
+  color: var(--muted);
+  display: grid;
+  gap: 0.35rem;
+}
+
+select,
+input,
+button {
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  padding: 0.62rem 0.7rem;
+  font-size: 0.95rem;
+}
+
+.btn {
+  cursor: pointer;
+  border-color: #9cb8a8;
+  background: #f7fbf8;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn.primary {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand-strong);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.8rem;
+}
+
+.card,
+.plan-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.9rem;
+  background: linear-gradient(180deg, #fff 0%, #fbf9f3 100%);
+}
+
+.card h3,
+.plan-card h3 {
+  margin-top: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag {
+  display: inline-flex;
+  padding: 0.12rem 0.5rem;
+  border-radius: 99px;
+  font-size: 0.76rem;
+  background: #e7f2ea;
+  border: 1px solid #cce1d3;
+  color: #204b36;
+}
+
+.hint {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.plan ul {
+  margin-top: 0.3rem;
+  padding-left: 1.1rem;
+}
+
+@media (max-width: 680px) {
+  .page {
+    width: 94%;
+    margin-top: 1rem;
+  }
+
+  .hero,
+  .panel {
+    border-radius: 12px;
+  }
+}

@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel de Doacoes - MVP</title>
+    <link rel="stylesheet" href="./painel.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <header class="hero">
+        <div>
+          <p class="badge">PEX Tech · MVP</p>
+          <h1>Painel de Doacoes para ONG</h1>
+          <p>
+            Controle de entradas, saidas, estoque e relatorio em um unico lugar.
+            Dados salvos localmente no navegador.
+          </p>
+        </div>
+        <nav class="hero-nav">
+          <a href="./ideias.html">Gerador de ideias</a>
+        </nav>
+      </header>
+
+      <section class="kpis" id="kpis" aria-live="polite"></section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Configuracao do projeto</h2>
+        </div>
+        <form id="project-form" class="form-grid">
+          <label>
+            Nome do projeto
+            <input
+              id="project-name"
+              name="projectName"
+              required
+              placeholder="Ex: Painel de Doacoes para ONG Esperanca"
+            />
+          </label>
+          <label>
+            Instituicao parceira
+            <input
+              id="project-partner"
+              name="projectPartner"
+              required
+              placeholder="Ex: ONG Esperanca"
+            />
+          </label>
+          <label class="full">
+            Objetivo (ODS)
+            <select id="project-objective" name="projectObjective" required></select>
+          </label>
+          <button class="btn primary" type="submit">Salvar configuracao</button>
+        </form>
+        <p class="project-summary" id="project-summary"></p>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>ADS V - Estruturacao completa do projeto</h2>
+        </div>
+        <form id="planning-form" class="form-grid">
+          <label class="full">
+            Introducao e contexto da instituicao/comunidade
+            <textarea
+              name="introContext"
+              rows="3"
+              placeholder="Como ocorreu o contato, quais problemas/oportunidades foram identificados."
+            ></textarea>
+          </label>
+          <label class="full">
+            Demandas ou lacunas tecnologicas
+            <textarea
+              name="introGaps"
+              rows="3"
+              placeholder="Ex: processos manuais, falta de integracao, necessidade de software sob medida."
+            ></textarea>
+          </label>
+          <label class="full">
+            Relevancia social, tecnologica e economica
+            <textarea
+              name="introRelevance"
+              rows="3"
+              placeholder="Impacto esperado e alinhamento com ADS."
+            ></textarea>
+          </label>
+          <label class="full">
+            Objetivo geral
+            <textarea
+              name="objectiveGeneral"
+              rows="2"
+              placeholder="Meta principal do projeto."
+            ></textarea>
+          </label>
+          <label class="full">
+            Objetivos especificos
+            <textarea
+              name="objectiveSpecific"
+              rows="3"
+              placeholder="Metas tangiveis: requisitos, prototipo, treinamento, testes etc."
+            ></textarea>
+          </label>
+          <label class="full">
+            Publico-alvo e comunidade envolvida
+            <textarea
+              name="targetAudience"
+              rows="2"
+              placeholder="Quem sera beneficiado e nivel de conhecimento tecnologico."
+            ></textarea>
+          </label>
+          <label class="full">
+            Coleta de requisitos
+            <textarea
+              name="requirementsCollection"
+              rows="2"
+              placeholder="Entrevistas, questionarios, observacao, analise de fluxos."
+            ></textarea>
+          </label>
+          <label class="full">
+            Modelagem e desenvolvimento
+            <textarea
+              name="modelingDevelopment"
+              rows="2"
+              placeholder="UML, arquitetura, tecnologias, padroes, backlog."
+            ></textarea>
+          </label>
+          <label class="full">
+            Testes e validacao
+            <textarea
+              name="testsValidation"
+              rows="2"
+              placeholder="Testes funcionais, usabilidade, seguranca, feedback de usuarios."
+            ></textarea>
+          </label>
+          <label class="full">
+            Treinamentos (quando aplicavel)
+            <textarea
+              name="trainingPlan"
+              rows="2"
+              placeholder="Plano de capacitacao para uso/manutencao do sistema."
+            ></textarea>
+          </label>
+          <label class="full">
+            Documentacao prevista
+            <textarea
+              name="documentationPlan"
+              rows="2"
+              placeholder="Manuais, atas, diagramas, logs, padrao de registro."
+            ></textarea>
+          </label>
+          <label>
+            Recursos materiais/tecnicos
+            <textarea
+              name="resourcesMaterials"
+              rows="2"
+              placeholder="Equipamentos, software, IDE, banco, hospedagem."
+            ></textarea>
+          </label>
+          <label>
+            Recursos humanos e horas estimadas
+            <textarea
+              name="resourcesHuman"
+              rows="2"
+              placeholder="Equipe envolvida e estimativa de dedicacao."
+            ></textarea>
+          </label>
+          <label class="full">
+            Recursos orcamentarios (se houver)
+            <textarea
+              name="resourcesBudget"
+              rows="2"
+              placeholder="Custos com nuvem, licencas, deslocamento etc."
+            ></textarea>
+          </label>
+          <label class="full">
+            Cronograma de execucao
+            <textarea
+              name="schedule"
+              rows="3"
+              placeholder="Fases, datas e entregas intermediarias."
+            ></textarea>
+          </label>
+          <label class="full">
+            Responsaveis e marcos de verificacao
+            <textarea
+              name="milestonesResponsibles"
+              rows="2"
+              placeholder="Quem responde por cada etapa e quais milestones validam progresso."
+            ></textarea>
+          </label>
+          <label>
+            Indicadores quantitativos
+            <textarea
+              name="indicatorsQuant"
+              rows="2"
+              placeholder="Ex: funcionalidades, tempo de resposta, retrabalho."
+            ></textarea>
+          </label>
+          <label>
+            Indicadores qualitativos
+            <textarea
+              name="indicatorsQual"
+              rows="2"
+              placeholder="Ex: usabilidade percebida, satisfacao, confianca."
+            ></textarea>
+          </label>
+          <label class="full">
+            Periodicidade de avaliacao
+            <textarea
+              name="indicatorsPeriodicity"
+              rows="2"
+              placeholder="Semanal/quinzenal/mensal, como coletar dados."
+            ></textarea>
+          </label>
+          <button class="btn primary" type="submit">Salvar estruturacao ADS V</button>
+        </form>
+        <p class="project-summary" id="planning-summary"></p>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>ADS V - Execucao preliminar (piloto) e revisao</h2>
+        </div>
+        <form id="pilot-form" class="form-grid">
+          <label class="full">
+            Selecao e planejamento do piloto
+            <textarea
+              name="pilotSelectionPlanning"
+              rows="2"
+              placeholder="Funcionalidade-chave/modulo selecionado e ambiente de teste."
+            ></textarea>
+          </label>
+          <label class="full">
+            Implementacao da versao reduzida
+            <textarea
+              name="pilotImplementation"
+              rows="3"
+              placeholder="Configuracao, deploy de homologacao, cenarios de uso, grupo de teste."
+            ></textarea>
+          </label>
+          <label class="full">
+            Evidencias coletadas no piloto
+            <textarea
+              name="pilotEvidence"
+              rows="2"
+              placeholder="Prints, logs, depoimentos, questionarios, registros de teste."
+            ></textarea>
+          </label>
+          <label class="full">
+            Erros, problemas e ajustes necessarios
+            <textarea
+              name="pilotErrorsAdjustments"
+              rows="3"
+              placeholder="Bugs, falhas de desempenho/interface e ajustes planejados."
+            ></textarea>
+          </label>
+          <label class="full">
+            Relatorio de execucao preliminar (resumo)
+            <textarea
+              name="pilotExecutionReport"
+              rows="3"
+              placeholder="O que foi executado, resultados e licoes aprendidas."
+            ></textarea>
+          </label>
+          <label class="full">
+            Revisao do projeto (mudancas de objetivo, cronograma e backlog)
+            <textarea
+              name="projectReview"
+              rows="3"
+              placeholder="Ajustes apos piloto e racional das alteracoes."
+            ></textarea>
+          </label>
+          <label class="full">
+            Palestras/cursos/oficinas (opcional)
+            <textarea
+              name="optionalTraining"
+              rows="2"
+              placeholder="Tema, publico, formato e materiais utilizados."
+            ></textarea>
+          </label>
+          <label class="full">
+            Evidencias opcionais de treinamento
+            <textarea
+              name="optionalTrainingEvidence"
+              rows="2"
+              placeholder="Fotos, lista de presenca, feedback dos participantes."
+            ></textarea>
+          </label>
+          <label class="full">
+            Refinamento final e proximos passos
+            <textarea
+              name="finalRefinement"
+              rows="3"
+              placeholder="Versao atualizada do plano e perspectiva de implementacao completa."
+            ></textarea>
+          </label>
+          <button class="btn primary" type="submit">Salvar execucao preliminar ADS V</button>
+        </form>
+        <p class="project-summary" id="pilot-summary"></p>
+      </section>
+
+      <section class="card-grid">
+        <article class="card">
+          <h2>Nova entrada</h2>
+          <form id="entry-form" class="form-grid">
+            <label>
+              Item
+              <input id="entry-item" name="item" required placeholder="Ex: Cesta basica" />
+            </label>
+            <label>
+              Categoria
+              <select id="entry-category" name="category" required>
+                <option>Alimentos</option>
+                <option>Higiene</option>
+                <option>Roupas</option>
+                <option>Medicamentos</option>
+                <option>Outros</option>
+              </select>
+            </label>
+            <label>
+              Quantidade
+              <input id="entry-quantity" name="quantity" type="number" min="0.01" step="0.01" required />
+            </label>
+            <label>
+              Unidade
+              <select id="entry-unit" name="unit" required>
+                <option>un</option>
+                <option>kg</option>
+                <option>l</option>
+                <option>caixa</option>
+                <option>pacote</option>
+              </select>
+            </label>
+            <label>
+              Doador
+              <input id="entry-donor" name="donor" required placeholder="Pessoa ou empresa" />
+            </label>
+            <label>
+              Data
+              <input id="entry-date" name="date" type="date" required />
+            </label>
+            <label class="full">
+              Observacao
+              <input id="entry-notes" name="notes" placeholder="Detalhes opcionais" />
+            </label>
+            <button class="btn primary" type="submit">Registrar entrada</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <h2>Nova saida</h2>
+          <form id="out-form" class="form-grid">
+            <label>
+              Item em estoque
+              <select id="out-item-id" name="itemId" required></select>
+            </label>
+            <label>
+              Quantidade
+              <input id="out-quantity" name="quantity" type="number" min="0.01" step="0.01" required />
+            </label>
+            <label>
+              Destino
+              <input id="out-target" name="target" required placeholder="Ex: Comunidade X" />
+            </label>
+            <label>
+              Responsavel
+              <input id="out-responsible" name="responsible" required placeholder="Nome do responsavel" />
+            </label>
+            <label>
+              Data
+              <input id="out-date" name="date" type="date" required />
+            </label>
+            <label class="full">
+              Observacao
+              <input id="out-notes" name="notes" placeholder="Detalhes opcionais" />
+            </label>
+            <button class="btn primary" type="submit">Registrar saida</button>
+          </form>
+        </article>
+      </section>
+
+      <section class="card-grid">
+        <article class="card wide">
+          <div class="section-head">
+            <h2>Estoque atual</h2>
+            <div class="inline-controls">
+              <label>
+                Alerta de estoque baixo ate
+                <input id="low-stock-threshold" type="number" min="0" step="0.01" value="10" />
+              </label>
+            </div>
+          </div>
+          <div id="low-stock-alert" class="alert hidden"></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Categoria</th>
+                  <th>Qtd</th>
+                  <th>Unidade</th>
+                  <th>Ultima movimentacao</th>
+                </tr>
+              </thead>
+              <tbody id="stock-table-body"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="card wide">
+          <div class="section-head">
+            <h2>Movimentacoes</h2>
+            <div class="inline-controls">
+              <input id="search" placeholder="Buscar por item, doador, destino..." />
+              <select id="movement-type-filter">
+                <option value="all">Todos</option>
+                <option value="entrada">Entradas</option>
+                <option value="saida">Saidas</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Tipo</th>
+                  <th>Item</th>
+                  <th>Qtd</th>
+                  <th>Origem / Destino</th>
+                  <th>Responsavel</th>
+                  <th>Obs</th>
+                </tr>
+              </thead>
+              <tbody id="movement-table-body"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="card actions">
+        <h2>Acoes</h2>
+        <div class="action-row">
+          <button id="seed-data" class="btn">Carregar dados de exemplo</button>
+          <button id="export-json" class="btn">Exportar dados (.json)</button>
+          <button id="export-report" class="btn">Exportar relatorio (.md)</button>
+          <label class="file-input btn">
+            Importar dados
+            <input id="import-json" type="file" accept="application/json" />
+          </label>
+          <button id="clear-data" class="btn danger">Limpar tudo</button>
+        </div>
+        <p class="muted">
+          Este MVP usa armazenamento local (`localStorage`). Para uso em producao,
+          migrar para backend com controle de acesso e auditoria.
+        </p>
+      </section>
+    </main>
+
+    <template id="kpi-template">
+      <article class="kpi">
+        <p class="kpi-label"></p>
+        <strong class="kpi-value"></strong>
+      </article>
+    </template>
+
+    <script src="./painel.js"></script>
+  </body>
+</html>
