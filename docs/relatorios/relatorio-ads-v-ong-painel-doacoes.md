@@ -126,9 +126,13 @@ Funcionalidades testadas:
 
 ### 2.3 Coleta de Evidencias (Piloto)
 - Print `evidencias/print-entrada-ponte-verde-01.png` da tela de cadastro de entradas.
+![Print da tela de cadastro de entradas](evidencias/print-entrada-ponte-verde-01.png)
 - Print `evidencias/print-saida-ponte-verde-01.png` da tela de cadastro de saidas.
+![Print da tela de cadastro de saidas](evidencias/print-saida-ponte-verde-01.png)
 - Print `evidencias/print-estoque-ponte-verde-01.png` do painel de estoque.
-- Print `evidencias/print-export-relatorio-ponte-verde-01.png` da exportacao de relatorio.
+![Print da tela de estoque](evidencias/print-estoque-ponte-verde-01.png)
+- Print `evidencias/print-adsv-estruturacao-ponte-verde-01.png` do formulario ADS V (estruturacao completa) preenchido no piloto.
+![Print do formulario ADS V (estruturacao completa)](evidencias/print-adsv-estruturacao-ponte-verde-01.png)
 - Registro de feedback da instituicao (reuniao de 20/02/2026) com Carla Regina Tavares (coordenadora) e Danilo Freitas (voluntario lider).
 
 ### 2.4 Avaliacao e Ajustes

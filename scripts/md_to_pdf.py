@@ -5,11 +5,13 @@ from xml.sax.saxutils import escape
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import cm
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Preformatted
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Preformatted, Image
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "docs/relatorios/relatorio-ads-v-ong-painel-doacoes.md"
 OUT = ROOT / "docs/relatorios/relatorio-ads-v-ong-painel-doacoes-final.pdf"
+MAX_IMAGE_WIDTH = A4[0] - (4 * cm)
+MAX_IMAGE_HEIGHT = 12 * cm
 
 
 def inline_markdown_to_rl(text: str) -> str:
@@ -31,6 +33,14 @@ def inline_markdown_to_rl(text: str) -> str:
             out.append(escape(token))
 
     return "".join(out)
+
+
+def parse_markdown_image(line: str):
+    match = re.match(r"!\[(.*?)\]\((.*?)\)", line.strip())
+    if not match:
+        return None
+    alt, path = match.group(1), match.group(2)
+    return alt.strip(), path.strip()
 
 
 def build_pdf(src: Path, out: Path) -> None:
@@ -67,6 +77,14 @@ def build_pdf(src: Path, out: Path) -> None:
         spaceAfter=4,
     )
     style_pre = ParagraphStyle("Pre", parent=styles["Code"], fontName="Courier", fontSize=8.5, leading=11)
+    style_caption = ParagraphStyle(
+        "Caption",
+        parent=styles["Normal"],
+        fontName="Helvetica-Oblique",
+        fontSize=9,
+        leading=12,
+        spaceAfter=6,
+    )
 
     story = []
     for raw in lines:
@@ -94,6 +112,23 @@ def build_pdf(src: Path, out: Path) -> None:
 
         if line.startswith("|"):
             story.append(Preformatted(line, style_pre))
+            continue
+
+        img_data = parse_markdown_image(line)
+        if img_data:
+            alt, img_path = img_data
+            resolved = (src.parent / img_path).resolve() if not Path(img_path).is_absolute() else Path(img_path)
+            if resolved.exists():
+                img = Image(str(resolved))
+                scale = min(MAX_IMAGE_WIDTH / img.drawWidth, MAX_IMAGE_HEIGHT / img.drawHeight, 1)
+                img.drawWidth *= scale
+                img.drawHeight *= scale
+                story.append(img)
+                if alt:
+                    story.append(Paragraph(inline_markdown_to_rl(alt), style_caption))
+                story.append(Spacer(1, 4))
+            else:
+                story.append(Paragraph(f"[Imagem nao encontrada: {escape(str(img_path))}]", style_body))
             continue
 
         story.append(Paragraph(inline_markdown_to_rl(line), style_body))
