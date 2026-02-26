@@ -21,6 +21,8 @@
 ### 1.1 Introducao e Justificativa
 A instituicao parceira realiza distribuicao de itens essenciais para familias em vulnerabilidade, porem o controle de doacoes era feito manualmente (anotacoes em papel e planilhas sem padrao). Esse processo gerava dificuldade para acompanhar saldo de estoque, historico de distribuicao e previsao de reposicao.
 
+Para formalizar a atividade extensionista, foi apresentada a Carta de Apresentacao e obtido o Termo de Autorizacao para Realizacao das Atividades Extensionistas com a instituicao parceira.
+
 A lacuna tecnologica identificada foi a ausencia de um sistema simples, acessivel e padronizado para registrar movimentacoes, consultar saldos por item e apoiar a tomada de decisao.
 
 A proposta de intervencao se mostra relevante por melhorar a organizacao operacional da ONG, reduzir erros de controle e dar mais confiabilidade ao processo de distribuicao de doacoes. O projeto tambem se alinha aos objetivos do curso de ADS ao aplicar requisitos, modelagem, desenvolvimento web, testes e validacao com usuarios.
@@ -180,12 +182,3 @@ Nesta etapa foi realizada orientacao pratica com os usuarios sobre cadastro de e
 
 ## 5. Refinamento Final do Projeto
 A versao atualizada do plano incorpora os aprendizados da execucao preliminar, priorizando confiabilidade de dados, simplicidade operacional e aderencia ao contexto da instituicao. O proximo ciclo focara na consolidacao da ferramenta para uso continuo e no fortalecimento da coleta de evidencias para as proximas fases da extensao.
-
----
-
-## 6. Checklist de envio no LMS
-- [ ] Documento de Estruturacao Completa do Projeto
-- [ ] Relatorio de Execucao Preliminar (Piloto)
-- [ ] Evidencias (prints/fotos/feedbacks)
-- [ ] Refinamento final e proximos passos
-- [ ] Termo de autorizacao assinado
