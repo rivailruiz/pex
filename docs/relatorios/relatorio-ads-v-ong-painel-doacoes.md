@@ -3,8 +3,8 @@
 ## Identificacao
 - Curso: Analise e Desenvolvimento de Sistemas
 - Disciplina: Projeto de Extensao V - Construcao e Execucao Preliminar do Projeto
-- Aluno(a): Lucas Matheus Nogueira
-- Matricula: ADS202611847
+- Aluno(a): Alexander Rivail Ruiz Martins
+- Matricula: 2424742
 - Polo/Cidade: Arsenal, Sao Goncalo (SG-RJ)
 - Instituicao parceira: Instituto Comunitario Ponte Verde
 - Periodo letivo: 2026.1
